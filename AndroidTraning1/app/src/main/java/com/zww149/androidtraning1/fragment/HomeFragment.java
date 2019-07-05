@@ -56,7 +56,7 @@ public class HomeFragment extends BaseFragment {
     private Banner banner;
     private List<NewsBean> newsList_AD;
     private List<NewsBean> newsList_news;
-    private List<String> ttitle;
+    private List<String> ttitle;//轮播图的标题
 
     @Override
     protected int setLayoutResourceID() {
@@ -106,7 +106,9 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
+        //设置轮播效果
         banner.setBannerAnimation(Transformer.CubeIn);
+        //显示的效果（加了底边的图片标题）
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
         ArrayList<String> tt = new ArrayList<>();//轮播图的标题
         ArrayList<Integer> images = new ArrayList<>();
@@ -143,6 +145,8 @@ public class HomeFragment extends BaseFragment {
                 startActivity(intent);
             }
         });
+
+
 
     }
 
