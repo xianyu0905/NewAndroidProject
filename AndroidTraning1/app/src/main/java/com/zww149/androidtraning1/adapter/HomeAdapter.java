@@ -10,6 +10,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.zww149.androidtraning1.R;
 import com.zww149.androidtraning1.bean.NewsBean;
 import com.zww149.androidtraning1.utils.ConstantUtils;
+import com.zww149.androidtraning1.utils.ImageUtils;
 
 import java.util.List;
 
@@ -38,8 +39,9 @@ public class HomeAdapter extends BaseMultiItemQuickAdapter<NewsBean, BaseViewHol
                 helper.setText(R.id.textView, item.getNewsName());
                 helper.setText(R.id.textView2, item.getNewsTypeName());
                 ImageView imageView = helper.getView(R.id.imageView);
-                Glide.with(helper.itemView.getContext())
-                        .load(ConstantUtils.WEB_SITE + item.getImg1()).into(imageView);
+
+                ImageUtils.setImage(helper.itemView.getContext(),
+                        ConstantUtils.WEB_SITE + item.getImg1(),imageView);
                 break;
             case 2:
                 helper.setText(R.id.textView, item.getNewsName());
@@ -47,13 +49,19 @@ public class HomeAdapter extends BaseMultiItemQuickAdapter<NewsBean, BaseViewHol
                 ImageView imageView1 = helper.getView(R.id.imageView);
                 ImageView imageView2 = helper.getView(R.id.imageView2);
                 ImageView imageView3 = helper.getView(R.id.imageView3);
-                Glide.with(helper.itemView.getContext())
+                /*Glide.with(helper.itemView.getContext())
                         .load(ConstantUtils.WEB_SITE + item.getImg1()).into(imageView1);
                 Glide.with(helper.itemView.getContext())
                         .load(ConstantUtils.WEB_SITE + item.getImg2()).into(imageView2);
                 Glide.with(helper.itemView.getContext())
-                        .load(ConstantUtils.WEB_SITE + item.getImg3()).into(imageView3);
+                        .load(ConstantUtils.WEB_SITE + item.getImg3()).into(imageView3);*/
 
+                ImageUtils.setImage(helper.itemView.getContext(),
+                        ConstantUtils.WEB_SITE + item.getImg1(),imageView1);
+                ImageUtils.setImage(helper.itemView.getContext(),
+                        ConstantUtils.WEB_SITE + item.getImg2(),imageView2);
+                ImageUtils.setImage(helper.itemView.getContext(),
+                        ConstantUtils.WEB_SITE + item.getImg3(),imageView3);
                 break;
 
         }
