@@ -27,6 +27,6 @@ public class SplashActivity extends BaseActivity {
                 SplashActivity.this.finish();
             }
         };
-        timer.schedule(timerTask,3000);
+        timer.schedule(timerTask,1000);
     }
 }

@@ -20,7 +20,7 @@ import java.util.List;
  * @description: 149
  * @date :2019/7/4 19:25
  */
-public class PythonActivity extends BaseActivity {
+public class PythonActivity extends HomeAsUpBaseActivity {
 
 
     @Override
@@ -45,8 +45,14 @@ public class PythonActivity extends BaseActivity {
 
             @Override
             public void onResponse(final String json) {
-                List<PythonBean> list = JsonParseUtils.getList(PythonBean.class,json);
-                pythonAdapter.setNewData(list);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        List<PythonBean> list = JsonParseUtils.getList(PythonBean.class,json);
+                        pythonAdapter.setNewData(list);
+                    }
+                });
+
             }
         });
     }
