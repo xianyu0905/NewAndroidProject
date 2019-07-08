@@ -1,5 +1,8 @@
 package com.zww149.androidtraning1.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
 /**
@@ -63,7 +66,7 @@ public class VideoBean {
         this.videoDetailList = videoDetailList;
     }
 
-    public static class VideoDetailListBean {
+    public static class VideoDetailListBean implements Parcelable {
         /**
          * video_id : DA2D015D371417299C33DC5901307461
          * video_name : 01-jQuery初体验
@@ -86,6 +89,37 @@ public class VideoBean {
 
         public void setVideo_name(String video_name) {
             this.video_name = video_name;
+        }
+
+        protected VideoDetailListBean(Parcel in){
+            video_id = in.readString();
+            video_name = in.readString();
+
+        }
+
+        public static final Creator<VideoDetailListBean> CREATOR= new Creator<VideoDetailListBean>() {
+            @Override
+            public VideoDetailListBean createFromParcel(Parcel in) {
+                return new VideoDetailListBean(in);
+            }
+
+            @Override
+            public VideoDetailListBean[] newArray(int size) {
+                return new VideoDetailListBean[size];
+            }
+        };
+
+
+
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(video_id);
+            dest.writeString(video_name);
         }
     }
 }

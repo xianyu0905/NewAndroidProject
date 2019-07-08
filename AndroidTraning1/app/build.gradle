@@ -47,6 +47,8 @@ dependencies {
     implementation 'com.just.agentweb:agentweb:4.0.3-beta'
     implementation 'com.nightonke:boommenu:2.1.1'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
 
 }

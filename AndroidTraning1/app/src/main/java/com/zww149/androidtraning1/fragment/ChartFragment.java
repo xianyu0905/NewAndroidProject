@@ -9,6 +9,7 @@ import com.nightonke.boommenu.BoomMenuButton;
 import com.zww149.androidtraning1.R;
 import com.zww149.androidtraning1.activity.AndroidPieChartActivity;
 import com.zww149.androidtraning1.activity.JavaLineChartActivity;
+import com.zww149.androidtraning1.activity.PHPBarChartActivity;
 
 public class ChartFragment extends BaseFragment {
 
@@ -42,8 +43,8 @@ public class ChartFragment extends BaseFragment {
                                     startActivity(intent1);
                                     break;
                                 case 2:
-                                    //                      Intent intent2 = new Intent(activity, PHPBarChartActivity.class);
-                                    //                      startActivity(intent2);
+                                    Intent intent2 = new Intent(activity, PHPBarChartActivity.class);
+                                    startActivity(intent2);
                                     break;
 
                             }
