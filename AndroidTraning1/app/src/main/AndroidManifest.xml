@@ -41,6 +41,7 @@
         <activity android:name=".activity.NewsDetailActivity"/>
         <activity android:name=".activity.PythonActivity"/>
         <activity android:name=".activity.JavaLineChartActivity"/>
+        <activity android:name=".activity.AndroidPieChartActivity"/>
     </application>
 
 </manifest>
