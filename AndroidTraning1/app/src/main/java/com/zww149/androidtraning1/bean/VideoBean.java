@@ -97,7 +97,8 @@ public class VideoBean {
 
         }
 
-        public static final Creator<VideoDetailListBean> CREATOR= new Creator<VideoDetailListBean>() {
+        public static final Creator<VideoDetailListBean> CREATOR=
+                new Creator<VideoDetailListBean>() {
             @Override
             public VideoDetailListBean createFromParcel(Parcel in) {
                 return new VideoDetailListBean(in);

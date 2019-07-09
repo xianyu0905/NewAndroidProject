@@ -1,17 +1,17 @@
 package com.zww149.androidtraning1.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.zww149.androidtraning1.activity.BaseActivity;
 import com.zww149.androidtraning1.fragment.BaseFragment;
 
 import java.util.ArrayList;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
 public class MyFragmentStatePagerAdapter extends FragmentStatePagerAdapter {
     private ArrayList<BaseFragment> data;
-    public MyFragmentStatePagerAdapter(FragmentManager fm,ArrayList<BaseFragment> data) {
+    public MyFragmentStatePagerAdapter(FragmentManager fm, ArrayList<BaseFragment> data) {
         super(fm);
         this.data = data;
     }

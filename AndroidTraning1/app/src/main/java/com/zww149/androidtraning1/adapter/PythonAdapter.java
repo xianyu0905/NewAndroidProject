@@ -1,6 +1,5 @@
 package com.zww149.androidtraning1.adapter;
 
-import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;

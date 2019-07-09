@@ -1,21 +1,23 @@
 package com.zww149.androidtraning1.fragment;
 
 import android.content.Intent;
-import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
 import android.view.View;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.google.gson.annotations.JsonAdapter;
+
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.zww149.androidtraning1.R;
-import com.zww149.androidtraning1.activity.PythonActivity;
 import com.zww149.androidtraning1.activity.VideoDetailActivity;
+
 import com.zww149.androidtraning1.adapter.VideoAdapter;
 import com.zww149.androidtraning1.bean.VideoBean;
 import com.zww149.androidtraning1.utils.ConstantUtils;
@@ -40,36 +42,40 @@ public class VideoFragment extends BaseFragment {
         super.initView(view);
         TextView title = view.findViewById(R.id.title);
         title.setText("视频");
-
         RefreshLayout refreshLayout = view.findViewById(R.id.refreshLayout);
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 refreshLayout.finishRefresh(2000/*,false*/);
+
             }
         });
+
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-                refreshLayout.finishRefresh(2000/*，false*/);//传入false表示刷新失败
+                refreshLayout.finishLoadMore(2000/*,false*/);
 
             }
         });
+
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         videoAdapter = new VideoAdapter(R.layout.item_video);
         recyclerView.setAdapter(videoAdapter);
+ //       recyclerView.addItemDecoration(new DividerItemDecoration(activity,DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(activity));
 
-        videoAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+        videoAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent = new Intent(activity, VideoDetailActivity.class);
                 intent.putExtra("videoName",list_video.get(position).getName());
-                intent.putExtra("videoImage",list_video.get(position).getImg());
+                intent.putExtra("videoImg",list_video.get(position).getImg());
                 intent.putExtra("videoIntro",list_video.get(position).getIntro());
                 intent.putParcelableArrayListExtra("videoDetailList",
                         (ArrayList<VideoBean.VideoDetailListBean>)
                                 list_video.get(position).getVideoDetailList());
+
                 startActivity(intent);
             }
         });
@@ -79,10 +85,13 @@ public class VideoFragment extends BaseFragment {
     protected void initData() {
         super.initData();
         getVideoData();
+//        getNewsData();
     }
 
     private void getVideoData() {
-        NetUtils.getDataAsyn(ConstantUtils.REQUEST_PYTHON_URL, new NetUtils.MyCallBack() {
+        NetUtils.getDataAsyn(ConstantUtils.REQUEST_VIDEO_URL, new NetUtils.MyCallBack() {
+
+
             @Override
             public void onFailure() {
 
@@ -93,7 +102,7 @@ public class VideoFragment extends BaseFragment {
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        list_video = JsonParseUtils.getList(VideoBean.class,json);
+                        list_video = JsonParseUtils.getList(VideoBean.class, json);
                         videoAdapter.setNewData(list_video);
                     }
                 });

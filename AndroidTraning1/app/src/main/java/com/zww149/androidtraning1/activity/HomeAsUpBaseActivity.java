@@ -3,11 +3,13 @@ package com.zww149.androidtraning1.activity;
 
 
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
+
 import android.view.View;
 
 import com.zww149.androidtraning1.R;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * @author zhuww

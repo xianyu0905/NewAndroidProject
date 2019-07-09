@@ -1,15 +1,17 @@
 package com.zww149.androidtraning1.activity;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.MenuItem;
 
 
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.viewpager.widget.ViewPager;
+
+
 import com.zww149.androidtraning1.R;
-import com.zww149.androidtraning1.activity.BaseActivity;
 import com.zww149.androidtraning1.adapter.MyFragmentStatePagerAdapter;
 import com.zww149.androidtraning1.fragment.BaseFragment;
 import com.zww149.androidtraning1.fragment.ChartFragment;
@@ -71,5 +73,7 @@ public class MainActivity extends BaseActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
     }
+
+
 
 }

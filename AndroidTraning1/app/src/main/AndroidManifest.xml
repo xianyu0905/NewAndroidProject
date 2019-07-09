@@ -43,6 +43,10 @@
         <activity android:name=".activity.JavaLineChartActivity"/>
         <activity android:name=".activity.AndroidPieChartActivity"/>
         <activity android:name=".activity.PHPBarChartActivity"/>
+        <activity android:name=".activity.VideoDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

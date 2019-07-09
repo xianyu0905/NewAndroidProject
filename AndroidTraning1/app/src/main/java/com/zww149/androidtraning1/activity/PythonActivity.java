@@ -1,9 +1,7 @@
 package com.zww149.androidtraning1.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
 import android.widget.TextView;
 
 import com.zww149.androidtraning1.R;
@@ -14,6 +12,10 @@ import com.zww149.androidtraning1.utils.JsonParseUtils;
 import com.zww149.androidtraning1.utils.NetUtils;
 
 import java.util.List;
+
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * @author zhuww

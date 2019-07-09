@@ -1,7 +1,6 @@
 package com.zww149.androidtraning1.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;

@@ -1,16 +1,15 @@
 package com.zww149.androidtraning1.utils;
 
-import android.support.annotation.NonNull;
+
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.zww149.androidtraning1.bean.ConstellationBean;
-import com.zww149.androidtraning1.bean.NewsBean;
-import com.zww149.androidtraning1.bean.PythonBean;
+
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
+
+import androidx.annotation.NonNull;
 
 /**
  * @author zhuww
