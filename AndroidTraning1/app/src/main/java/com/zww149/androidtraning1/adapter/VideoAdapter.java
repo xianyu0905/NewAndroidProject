@@ -1,6 +1,6 @@
 package com.zww149.androidtraning1.adapter;
 
-import androidx.annotation.Nullable;
+
 import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
