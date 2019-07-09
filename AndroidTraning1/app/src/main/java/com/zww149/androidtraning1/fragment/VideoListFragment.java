@@ -1,10 +1,6 @@
 package com.zww149.androidtraning1.fragment;
 
 import android.view.View;
-import android.widget.TextView;
-
-
-
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zww149.androidtraning1.R;
@@ -16,6 +12,7 @@ import com.zww149.androidtraning1.bean.VideoBean;
 
 import java.util.List;
 
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,15 +28,19 @@ public class VideoListFragment extends BaseFragment {
     protected void initView(View view) {
         super.initView(view);
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
         VideoListAdapter videoListAdapter = new VideoListAdapter(R.layout.item_video_list);
         recyclerView.setAdapter(videoListAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.addItemDecoration(new DividerItemDecoration(activity,
+                DividerItemDecoration.VERTICAL));
+
+
         //todo 视频bean下的内部类
 
-        List<VideoBean.VideoDetailListBean> videoList =
-                activity.getIntent().getParcelableArrayListExtra("videoList");
+        List<VideoBean.VideoDetailListBean> videoDetailList =
+                activity.getIntent().getParcelableArrayListExtra("videoDetailList");
 
-        videoListAdapter.setNewData(videoList);
+        videoListAdapter.setNewData(videoDetailList);
         videoListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {

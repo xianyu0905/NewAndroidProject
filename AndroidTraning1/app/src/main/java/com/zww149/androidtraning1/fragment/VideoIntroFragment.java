@@ -6,6 +6,7 @@ package com.zww149.androidtraning1.fragment;
 import android.view.View;
 import android.widget.TextView;
 
+
 import com.zww149.androidtraning1.R;
 
 /**
