@@ -77,7 +77,7 @@ public class LoginActivity extends HomeAsUpBaseActivity {
 
     }
 
-    public void forgetPassword(){
+    public void forgetPassword(View view){
         Intent intent = new Intent(this,FindPasswordActivity.class);
         startActivity(intent);
     }
