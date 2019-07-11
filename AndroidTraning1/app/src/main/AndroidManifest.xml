@@ -76,6 +76,8 @@
 
         <activity android:name=".activity.RegisterActivity"/>
         <activity android:name=".activity.FindPasswordActivity"/>
+        <activity android:name=".activity.UserInfoActivity"/>
+        <activity android:name=".activity.TextEditActivity"/>
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"

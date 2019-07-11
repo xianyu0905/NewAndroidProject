@@ -67,6 +67,7 @@ public class RegisterActivity extends HomeAsUpBaseActivity {
         final User user = new User();
         user.setUsername(userName);
         user.setPassword(password);
+        user.setNickName("无").setSex(false).setInfo("这家伙很懒");
         user.setEmail(emial);
         user.signUp(new SaveListener<User>() {
             @Override
@@ -77,7 +78,8 @@ public class RegisterActivity extends HomeAsUpBaseActivity {
                     setResult(RESULT_OK,data);
                     RegisterActivity.this.finish();
                 } else {
-                    Snackbar.make(view, "尚未失败：" + e.getMessage(), Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(view, "尚未失败：" + e.getMessage(),
+                            Snackbar.LENGTH_LONG).show();
                 }
             }
         });

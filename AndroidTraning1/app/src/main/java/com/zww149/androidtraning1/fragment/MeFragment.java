@@ -1,6 +1,7 @@
 package com.zww149.androidtraning1.fragment;
 
 import android.content.Intent;
+
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -9,6 +10,11 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.zww149.androidtraning1.R;
 import com.zww149.androidtraning1.activity.LoginActivity;
 
+
+import com.zww149.androidtraning1.activity.UserInfoActivity;
+import com.zww149.androidtraning1.bean.User;
+
+import cn.bmob.v3.BmobUser;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
@@ -32,6 +38,8 @@ public class MeFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if(isLogin){
+                    Intent intent = new Intent(activity, UserInfoActivity.class);
+                    startActivity(intent);
 
                 }else{
                     Intent intent =  new Intent(activity, LoginActivity.class);
@@ -39,6 +47,11 @@ public class MeFragment extends BaseFragment {
                 }
             }
         });
+        isLogin = BmobUser.isLogin();
+        if (isLogin){
+            User user = BmobUser.getCurrentUser(User.class);
+            collapsingToolbarLayout.setTitle(user.getUsername());
+        }
     }
 
     @Override
@@ -52,4 +65,6 @@ public class MeFragment extends BaseFragment {
                 collapsingToolbarLayout.setTitle(userName);
             }
     }
+
+
 }
